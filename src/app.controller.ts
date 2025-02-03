@@ -1,9 +1,20 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query, Req } from '@nestjs/common';
+import { 
+  Body,
+  Controller, 
+  Delete, 
+  Get, 
+  Param, 
+  Patch, 
+  Post, 
+  Put, 
+  Query, 
+  Req,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getDefault(): string {
@@ -42,20 +53,5 @@ export class AppController {
   @Post('test-body')
   testBody(@Req() req, @Body() body, @Body('celsius') celsius: number) {
     return { celsius };
-  }
-
-  @Get('convert')
-  convert(@Query('celsius') celsius: string) {
-    return this.appService.convert(parseFloat(celsius));
-  }
-
-  @Post('convert')
-  convertByPost(@Body('celsius') celsius: number) {
-    return this.appService.convert(celsius);
-  }
-
-  @Get('convert/:celsius')
-  convertByParam(@Param('celsius') celsius: string) {
-    return this.appService.convert(parseFloat(celsius));
   }
 }
