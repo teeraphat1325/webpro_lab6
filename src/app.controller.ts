@@ -1,13 +1,11 @@
-import { 
+import {
   Body,
-  Controller, 
-  Delete, 
-  Get, 
-  Param, 
-  Patch, 
-  Post, 
-  Put, 
-  Query, 
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
   Req,
 } from '@nestjs/common';
 import { AppService } from './app.service';
